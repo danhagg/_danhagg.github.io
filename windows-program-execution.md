@@ -1,11 +1,11 @@
 ---
-title: Registry
+title: Program Execution
 parent: Windows Artifacts
 has_children: true
-nav_order: 1
+nav_order: 2
 ---
 
-# Registry
+# Program Execution
 
 ## Location
 
