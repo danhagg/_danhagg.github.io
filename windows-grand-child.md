@@ -1,7 +1,7 @@
 ---
 title: Granchild of Windows
 parent: Child of Windows
-grand_parent: Windows
+grand_parent: Windows Artifacts
 nav_order: 1
 ---
 
