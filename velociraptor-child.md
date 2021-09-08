@@ -1,6 +1,6 @@
 ---
-title: Child of Windows
-parent: Windows
+title: Child of Velociraptor
+parent: Velociraptor
 has_children: true
 nav_order: 1
 ---
