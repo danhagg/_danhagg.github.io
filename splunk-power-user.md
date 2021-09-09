@@ -36,19 +36,16 @@ Input Phase
 
 Knowledge Object
 
-<group name>\_<type>\_<description>
+`<group name>_<type>_<description>`
 
-Fields are case sensitive
-
-Values are not case sensitive
+- Fields are case sensitive
+- Values are not case sensitive
 
 **categoryId!=SPORTS**
-
-Exclude events where categoryId does not include SPORTS
+- Exclude events where categoryId does not include SPORTS
 
 **NOT categoryId=SPORTS**
-
-Same as above PLUS exclude events with no categoryId entry
+- Same as above PLUS exclude events with no categoryId entry
 
 ## SPL
 
@@ -58,15 +55,15 @@ Same as above PLUS exclude events with no categoryId entry
 - Functions (Purple)
 
 ```markdown
-| stats sum(bytes) as Total\_Bytes
-| eval Total\_bytes = tostring(Total\_Bytes, “commas”)
+| stats sum(bytes) as Total_Bytes
+| eval Total_bytes = tostring(Total_Bytes, "commas")
 ```
 
 ```markdown
 index=web
 | table clientIP, action, categoryId, status
 | where isnotnull(action)
-| rename action as “ACTION”, clientIP as “Shoppers IP”
+| rename action as "ACTION", clientIP as "Shoppers IP"
 | fields - status
 ```
 
@@ -74,28 +71,38 @@ Transforming commands order results into a data table
 
 *Top* vs *rare (Top 10 vs Rarest 10)*
 
+```markdown
 index=security \*fail\* | top src showperc=f
 | rare limit=1 fieldName
 | stats count by fieldName
 |stats values(referrer domain)
 | stats count by referrer domain, action
-| stats values(usr) as “Login Name”, count(user) as “Attempts” by src
+| stats values(usr) as "Login Name", count(user) as """Attempts""" by src
 | fillnull value="No Data available"
+```
 
-index=\_internal
-| eval epoch\_time=strptime(\_time, “%s”)
-| eval hrt=strftime(epoch\_time, “%m/%d/%y %H:%M”)
-| table \_time, epoch\_time, hrt
+```markdown
+index=_internal
+| eval epoch_time=strptime(_time, "%s")
+| eval hrt=strftime(epoch_time, "%m/%d/%y %H:%M")
+| table _time, epoch_time, hrt
+```
 
+```markdown
 index=web
-| eval status\_codes=case((status==404), “not found”, (status==400), “bad request”,)
-| stats count by status, status\_codes
+| eval status_codes=case((status==404), "not found", (status==400), "bad request",)
+| stats count by status, status_codes
+```
 
+```markdown
 index=web
-| stats count(eval(status==404)) as “number of founds”
+| stats count(eval(status==404)) as "number of founds"
 | eval hash=md5(file)
+```
 
+```markdown
 index=security
 | table src, user, action
-| where like(src, “64.%)
+| where like(src, "64.%)
 | search user=bob
+```
