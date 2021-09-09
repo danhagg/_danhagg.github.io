@@ -1,12 +1,8 @@
 ---
 title: "Network+: Cabling & Topology"
 parent: Network+
+grand_parent: Cerifications
 nav_order: 2
-categories:
-  - Network+
-tags:
-  - Topology
-  - Cabling
 ---
 
 ## Topology
