@@ -12,7 +12,7 @@ uname 5plunkbcup
 
 ## Install
 
-**Linux**
+### Linux
 
 - Can download the appropriate package or use wget (especially for cloud)
 - Do not install as root user
@@ -25,15 +25,15 @@ uname 5plunkbcup
 - ./splunk restart
 - ./splunk help
 
-**Windows**
+### Windows
 
 GUI
 
-**Mac OSX**
+### Mac
 
 ?
 
-**Cloud**
+### Cloud
 
 - As a subscription service
 - Removes the infrastructure requirements from you
@@ -43,6 +43,7 @@ GUI
 - Apps are preconfigured environments, workspaces designed to solve certain problems
 
 ## Components
+
 **Indexers**
 
 indexes an event in a directory (by age)
@@ -102,11 +103,11 @@ Search modes
 - In order of evaluation
 - NOT, OR, AND
 - AND is implied if not stated
-  - e.g., port 22 vs “port 22”
+  - e.g., port 22 vs "port 22"
 
 failed NOT (success OR accepted)
 
-- \” - escapes quotations so you can search for them
+- \" - escapes quotations so you can search for them
 - \* wildcard
 - Job settings: searches saved for 7 days
 - Drag a bookmark icon to browser
@@ -123,17 +124,17 @@ failed NOT (success OR accepted)
 
 **Data types**
 
+```markdown
 a - string
-
-\# - numerical
+# - numerical
 
 field names are case sensitive values are not
 
 =, != (string and numerical)
+>, >=, <, <= (numerical)
+```
 
-\>, >=, <, <= (numerical)
-
-index=webstatus IN (“200”, “304)
+`index=webstatus IN ("200", "304")`
 
 **Best practices of searching/filtering**
 
@@ -157,11 +158,11 @@ Real-time searches
 
 -30m, -30s, (s, m, h, d, w, mon, y)
 
-sourcetype=access\_combined earliest=-2h latest=-1h
+`sourcetype=access_combined earliest=-2h latest=-1h`
 
-sourcetype=access\_combined earliest=01/01/2021
+`sourcetype=access_combined earliest=01/01/2021`
 
-index=web OR ma\*
+`index=web OR ma*`
 
 **Splunk Search Language (SPL)**
 
@@ -177,7 +178,10 @@ Five components
 - Clauses
   - Explain how we want results, grouped, defined
 
-sourcetype=acc\* | stats list(prod\_nam) **as** “Games Sold”
+```markdown
+sourcetype=acc\* 
+| stats list(prod\_nam) **as** "Games Sold"
+```
 
 CTRL + \ puts pipes on new line
 
@@ -188,41 +192,41 @@ CTRL + \ puts pipes on new line
 - Field inclusion happens before field extraction and can improve performance
 - Field exclusion happens after field extraction only affecting displayed results
 
-| fields status clientip
+`| fields status clientip`
 
-| fields - status clientip
+`| fields - status clientip`
 
 **Table**
 
 - display results in simple table
 
-| table JSESSIONID, product\_name, price
+`| table JSESSIONID, product_name, price`
 
 **Rename**
 
 - New field names will need to be used further down the pipeline
 
-| rename JSESSIONID as “User Session”
+`| rename JSESSIONID as "User Session"`
 
 **Dedup**
 
 - deduplicate on a field
 
-| dedup username
+`| dedup username`
 
 **Sort**
 
 - New field names will need to be used further down the pipeline
 
-| table vendor product\_name sale\_price
+`| table vendor product_name sale_price`
 
-| sort vendor sale\_price limit=20
+`| sort vendor sale_price limit=20`
 
-`	`vs
+vs
 
-| sort - sale\_price vendor limit=20 (desc)
+`| sort - sale_price vendor limit=20 (desc)`
 
-| sort -sale\_price vendor limit=20 (desc just sale\_price)
+`| sort -sale_price vendor limit=20 (desc just sale_price)`
 
 ## Transform Commands
 Order search results into a data table for statistical purposes
@@ -231,17 +235,17 @@ Order search results into a data table for statistical purposes
 
 Most common values of a given field
 
-| top vendor limit=20 
+`| top vendor limit=20 `
 
-showperc=False
+`showperc=False`
 
-countfield=”Number of Sales”
+`countfield="Number of Sales"`
 
-useother=True
+`useother=True`
 
 Use **top** to split **by** a second field
 
-| top product\_name by vendor limit=3
+`| top product_name by vendor limit=3`
 
 **Rare**
 
@@ -251,7 +255,7 @@ Use **top** to split **by** a second field
 **Stats**
 
 - count
-- distinct\_count or dc
+- distinct_count or dc
 - sum
 - average or avg
 - min
@@ -259,61 +263,79 @@ Use **top** to split **by** a second field
 - list
 - values
 
-| stats count as “Total” by product\_name, sales\_price
+`| stats count as "Total" by product_name, sales_price`
 
-| stats count(action) as “Action Events”, count as “Total Events”
+`| stats count(action) as "Action Events", count as "Total Events"`
 
 field passed as argument to count function
 
-| stats distinct\_count(product\_name) as “Number of games for sale by vendors” by sale\_price
+`| stats distinct_count(product_name) as "Number of games for sale by vendors" by sale_price`
 
-| stats sum(price) as “Gross Sales” by product\_name
+`| stats sum(price) as "Gross Sales" by product_name`
 
-| stats count as “Units sold” sum(price) as “Gross Sales” by product\_name
+`| stats count as "Units sold" sum(price) as "Gross Sales" by product_name`
 
-| stats avg(field\_price) as “Average Price) 
+`| stats avg(field_price) as "Average Price)`
 
-min(sales-price) as “Min Price” 
+`min(sales-price) as "Min Price"`
 
-max(sales\_price) as “max Price” by category\_id
+`max(sales_price) as "max Price" by category_id`
 
 **List**
 
 List all values of a given field
 
-| stats list(Asset) as “Company Assets” by Employee
+`| stats list(Asset) as "Company Assets" by Employee`
 
 **Questions**
 
-host=web\_application file=cart.do OR success.do status=200 | stats count by file | rename count as "Transactions" file as "Functions"
+```markdown
+host=web_application file=cart.do OR success.do status=200 
+| stats count by file 
+| rename count as "Transactions" file as "Functions"
+```
 
 **How many logins**
 
-host=web\_application | stats dc(JSESSIONID)
+`host=web_application | stats dc(JSESSIONID)`
 
 **How many bytes (bytes = field name)**
 
-host=web\_application status=200 | stats sum(bytes) as TotalBytes by file | sort TotalBytes
+```markdown
+host=web_application status=200 
+| stats sum(bytes) as TotalBytes by file 
+| sort TotalBytes
+```
 
 **Find long query times**
 
-index=\* Command=\* | stats avg(Duration) as "Query Time" by Command | sort -"Query Time"
+index=* Command=* 
+| stats avg(Duration) as "Query Time" by Command 
+| sort -"Query Time"
 
 **Sort by most common browser**
 
-index=\* useragent=\* | stats count(useragent) by useragent | sort -count(useragent)
+```markdown
+index=* useragent=* 
+| stats count(useragent) by useragent 
+| sort -count(useragent)
+```
 
 **Sort by most common ips forbidden page**
 
-index=main status="403" | stats count as Attempts by clientip | sort -Attempts
+```markdown
+index=main status="403" 
+| stats count as Attempts by clientip 
+| sort -Attempts
+```
 
 ## Reports & Dashboards
 
 **Reports**
 
 - Are saved searches
-- Save As > report 
-- naming convention: Group\_type\_description
+- Save As > report
+- naming convention: Group_type_description
 
 **Visualizations**
 
@@ -364,19 +386,19 @@ Can create reports without search strings
 
 ROOT OBJECT
 
-sourcetype=access\_combined
+`sourcetype=access_combined`
 
 CHILD OBJECT
 
-status=200
+`status=200`
 
 CHILD OBJECT
 
-action=purchase
+`action=purchase`
 
 CHILD OBJECT
 
-stats count by product\_name
+`stats count by product_name`
 
 ## Lookups
 
@@ -403,20 +425,20 @@ code, description
 
 **Put file in Splunk (method 1)**
 
-add http\_status.csv to
+add `http_status.csv` to
 
-C:\Program Files\Splunk\etc\apps\search\lookups
+_C:\Program Files\Splunk\etc\apps\search\lookups_
 
 check lookup works with
 
-| inputlookup http\_status.csv
+`| inputlookup http_status.csv`
 
 **Put file in Splunk (method 2)**
 
 - Settings
 - Lookups
 - Destination App: Search
-- Destination filename: http\_status.csv
+- Destination filename: http_status.csv
 
 **Define Lookup**
 
@@ -425,23 +447,23 @@ check lookup works with
 - Lookup definitions
 - Add new
   - Destination App: search
-  - Name: http\_status
+  - Name: http_status
   - Type: file-based
-  - lookup file: http\_status.csv
+  - lookup file: http_status.csv
 
 **Lookup command**
 
-| lookup http\_status code as status
+`| lookup http_status code as status`
 
 **Output clause**
 
-index=\* | lookup http\_status code as status,
+`index=* | lookup http_status code as status`
 
 OUTPUT code as "HTTP Code",
 
 description as "HTTP Description"
 
-| table host, "HTTP Code", "HTTP Description"
+`| table host, "HTTP Code", "HTTP Description"`
 
 **Automatic Lookups**
 
@@ -452,9 +474,9 @@ description as "HTTP Description"
 
 Destination App: search
 
-Name: http\_status\_lookup
+Name: http_status_lookup
 
-Lookup table: http\_status\_lookup
+Lookup table: http_status_lookup
 
 input fields: code = status
 
@@ -472,9 +494,14 @@ description = Description
 
 **Lookup Quiz**
 
-file=success.do status=200 | lookup products\_lookup productId as productId OUTPUT product\_name as ProductName | stats count as Total by ProductName
+```markdown
+file=success.do status=200 
+| lookup products_lookup productId as productId OUTPUT product_name as ProductName 
+| stats count as Total by ProductName
+```
 
 ## Scheduled Reports
+
 **Triggers an action each time it runs**
 
 Useful for:
@@ -538,121 +565,11 @@ Trigger alert
 
 **View source data**
 
-| eventcount summarize=false index=\* | dedup index
+```markdown
+| eventcount summarize=false index=*
+| dedup index
+```
 
 **View Index metadata**
 
-| metadata type=sources index=\*
-
-# Power User
-
-## Introduction
-Three core components:
-
-- forwarders
-- indexers
-- search heads
-
-Deployments
-
-- Standalone (Single instance, no forwarders)
-- Basic (Can use forwarders)
-- Multi-instance (Functional separation of Search Heads, indexers)
-
-Deployment server for deploying multiple forwarders
-
-Input types
-
-- Upload
-- Monitor (Files/Ports on this Splunk instance)
-- Forward Data from Splunk Forwarder
-
-Input Phase
-
-- Source: Path of data, method of collection
-- Host: Who sent data
-- Source type: Data format, Linux secure
-
-Knowledge Object
-
-<group name>\_<type>\_<description>
-
-Fields are case sensitive
-
-Values are not case sensitive
-
-**categoryId!=SPORTS**
-
-Exclude events where categoryId does not include SPORTS
-
-**NOT categoryId=SPORTS**
-
-Same as above PLUS exclude events with no categoryId entry
-
-## SPL
-
-- Command modifiers (Orange)
-- Commands (Blue)
-- Arguments (Green)
-- Functions (Purple)
-
-
-| stats sum(bytes) as Total\_Bytes
-
-| eval Total\_bytes = tostring(Total\_Bytes, “commas”)
-
-index=web
-
-| table clientIP, action, categoryId, status
-
-| where isnotnull(action)
-
-| rename action as “ACTION”, clientIP as “Shoppers IP”
-
-| fields - status
-
-Transforming commands order results into a data table
-
-*Top* vs *rare (Top 10 vs Rarest 10)*
-
-index=security \*fail\* | top src showperc=f
-
-| rare limit=1 fieldName
-
-| stats count by fieldName
-
-|stats values(referrer domain)
-
-| stats count by referrer domain, action
-
-| stats values(usr) as “Login Name”, count(user) as “Attempts” by src
-
-| fillnull value=”No Data available”
-
-index=\_internal
-
-| eval epoch\_time=strptime(\_time, “%s”)
-
-| eval hrt=strftime(epoch\_time, “%m/%d/%y %H:%M”)
-
-| table \_time, epoch\_time, hrt
-
-index=web
-
-| eval status\_codes=case((status==404), “not found”, (status==400), “bad request”,)
-
-| stats count by status, status\_codes
-
-index=web
-
-| stats count(eval(status==404)) as “number of founds”
-
-| eval hash=md5(file)
-
-index=security
-
-| table src, user, action
-
-| where like(src, “64.%)
-
-| search user=bob
+`| metadata type=sources index=*`

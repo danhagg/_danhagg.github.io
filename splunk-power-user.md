@@ -72,12 +72,16 @@ Transforming commands order results into a data table
 *Top* vs *rare (Top 10 vs Rarest 10)*
 
 ```markdown
-index=security \*fail\* | top src showperc=f
+index=security *fail* | top src showperc=f
 | rare limit=1 fieldName
 | stats count by fieldName
-|stats values(referrer domain)
+or
+| stats values(referrer domain)
+or
 | stats count by referrer domain, action
+or
 | stats values(usr) as "Login Name", count(user) as """Attempts""" by src
+or
 | fillnull value="No Data available"
 ```
 
