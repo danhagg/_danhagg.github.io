@@ -1,6 +1,7 @@
 ---
 title: "Network+: Network Models"
-last_modified_at: 2019-10-24T16:20:02-05:00
+parent: Network+
+nav_order: 1
 categories:
   - Network+
 tags:

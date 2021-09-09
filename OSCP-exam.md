@@ -1,6 +1,7 @@
 ---
 title: "Passing the OSCP Exam: Trying Smarter"
-last_modified_at: 2019-10-25T16:20:02-05:00
+parent: OSCP
+nav_order: 6
 categories:
   - Cyber Security
 tags:

@@ -1,6 +1,7 @@
 ---
 title: "Digital Forensics: Imaging a Windows PC"
-last_modified_at: 2019-10-28T16:20:02-05:00
+has_children: true
+nav_order: 4
 categories:
   - Cyber Security
 tags:
