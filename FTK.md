@@ -1,12 +1,8 @@
 ---
 title: FTK
+parent: Tools
 has_children: true
-nav_order: 4
-categories:
-  - Cyber Security
-tags:
-  - FTK Imager
-  - Windows
+nav_order: 1
 ---
 
 # FTK

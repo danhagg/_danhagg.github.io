@@ -1,13 +1,8 @@
 ---
 title: "OSCP: Windows Buffer Overflow"
 parent: OSCP
+grand_parent: Certifications
 nav_order: 1
-categories:
-  - Cyber Security
-tags:
-  - OSCP
-  - Windows
-  - Buffer Overflow
 ---
 
 # Windows Buffer Overflow (SLMail)

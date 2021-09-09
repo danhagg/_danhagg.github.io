@@ -1,12 +1,8 @@
 ---
 title: "Passing the OSCP Exam: Trying Smarter"
 parent: OSCP
+grand_parent: Certifications
 nav_order: 6
-categories:
-  - Cyber Security
-tags:
-  - Penetration Testing
-  - OSCP
 ---
 
 > The definition of insanity is doing the same thing over and over again, but expecting different results.

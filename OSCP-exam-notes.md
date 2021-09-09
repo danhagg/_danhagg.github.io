@@ -1,12 +1,8 @@
 ---
 title: "OSCP: Notes for exam"
 parent: OSCP
+grand_parent: Certifications
 nav_order: 5
-categories:
-  - Cyber Security
-tags:
-  - OSCP
-  - Kali
 ---
 
 Everyone has one. This is mine. A collection of OSCP prep-notes from various other guides and sources over the internet as well as my own experience within the Hack The Box labs and in the Penetration Testing with Kali Linux labs. 

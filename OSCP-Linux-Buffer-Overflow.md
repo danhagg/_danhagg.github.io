@@ -1,13 +1,8 @@
 ---
 title: "OSCP: Linux Buffer Overflow"
 parent: OSCP
+grand_parent: Certifications
 nav_order: 2
-categories:
-  - Cyber Security
-tags:
-  - OSCP
-  - Linux
-  - Buffer Overflow
 ---
 
 # Linux Buffer Overflow (Crossfire)

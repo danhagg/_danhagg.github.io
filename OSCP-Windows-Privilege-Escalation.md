@@ -1,13 +1,8 @@
 ---
 title: "OSCP: Windows Privilege Escalation"
 parent: OSCP
+grand_parent: Certifications
 nav_order: 3
-categories:
-  - Cyber Security
-tags:
-  - OSCP
-  - Windows
-  - Privilege Escalation
 ---
 
 ```
