@@ -1,7 +1,7 @@
 ---
 title: Network Models
 parent: Network+
-grand_parent: Cerifications
+grand_parent: Certifications
 nav_order: 1
 ---
 

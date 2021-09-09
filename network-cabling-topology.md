@@ -1,7 +1,7 @@
 ---
 title: "Network+: Cabling & Topology"
 parent: Network+
-grand_parent: Cerifications
+grand_parent: Certifications
 nav_order: 2
 ---
 

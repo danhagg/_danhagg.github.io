@@ -1,13 +1,8 @@
 ---
 title: "OSCP: Linux Privilege Escalation"
 parent: OSCP
+grand_parent: Certifications
 nav_order: 4
-categories:
-  - Cyber Security
-tags:
-  - OSCP
-  - Linux
-  - Privilege Escalation
 ---
 
 privesc_linux
