@@ -1,5 +1,5 @@
 ---
-title: "Digital Forensics: Imaging a Windows PC"
+title: FTK
 has_children: true
 nav_order: 4
 categories:
@@ -9,6 +9,7 @@ tags:
   - Windows
 ---
 
+# FTK
 Drive acquisition is one the first steps a Forensic Analyst will have to carry out at the beginning of case. These acquistions are often carried out remotely by VPN or by the the client (or client IT department) where the computer is located. Acquiring such images from a drive has been made easy using AccesData Forensic Toolkit (FTK) Imager. The software is free and can be downloaded [here](https://accessdata.com/product-download/forensic-toolkit-ftk-version-7.1.0)! 
 
 Once downloaded, install the software. Launch by doubleclicking the FTK icon or running `FTK Imager.exe` from the command line.

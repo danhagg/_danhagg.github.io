@@ -1,15 +1,8 @@
 ---
-title: "Network+: Network Models"
+title: Network Models
 parent: Network+
+grand_parent: Cerifications
 nav_order: 1
-categories:
-  - Network+
-tags:
-  - OSI
-  - TCP/IP
-  - Frame
-  - MAC Address
-  - IP Address
 ---
 
 ## Network Models

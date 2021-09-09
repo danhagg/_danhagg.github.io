@@ -1,10 +1,8 @@
-## Cybersecurity Notes
-
-A collection of notes required to carry out Digital Forensics & Incident Response (DFIR).
-
-### whoami
+## whoami
 
 Daniel Haggerty. Neuroscientist for 14 years. Cybersecurity Investigator for...
+
+A collection of notes required to carry out Digital Forensics & Incident Response (DFIR).
 
 Links to my other sites
 
