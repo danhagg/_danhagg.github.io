@@ -1,6 +1,7 @@
 ---
 title: "OSCP: Linux Privilege Escalation"
-last_modified_at: 2019-11-01T16:20:02-05:00
+parent: OSCP
+nav_order: 4
 categories:
   - Cyber Security
 tags:

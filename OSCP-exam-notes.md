@@ -1,6 +1,7 @@
 ---
 title: "OSCP: Notes for exam"
-last_modified_at: 2019-10-30T16:20:02-05:00
+parent: OSCP
+nav_order: 5
 categories:
   - Cyber Security
 tags:
