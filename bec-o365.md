@@ -6,7 +6,3 @@ nav_order: 1
 ---
 
 # O365
-
-1. Acquiring the logs
-2. Analyzing
-3. Interpreting the logs
