@@ -1,7 +1,7 @@
 ---
 title: Fundamentals
 parent: Splunk
-grand_parent: Certifications
+grand_parent: Tools
 nav_order: 1
 ---
 
