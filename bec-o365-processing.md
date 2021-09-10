@@ -7,6 +7,6 @@ nav_order: 3
 
 # O365 Processing
 
-o365_processor.py
-o365_elastic.py
-o365_splunk.py
+- o365_processor.py
+- o365_elastic.py
+- o365_splunk.py

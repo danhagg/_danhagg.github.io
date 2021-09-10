@@ -1,11 +1,11 @@
 ---
-title: External Device & USB Storage
+title: External Device/USB
 parent: Windows Artifacts
 has_children: true
 nav_order: 7
 ---
 
-# External Device & USB Storage
+# External Device/USB
 
 ## PnP Events
 _%system root%\System32\winevt\logs\System.evtx_

@@ -1,5 +1,5 @@
 ---
-title: BEC O365 Attack
+title: O365 Attack
 parent: O365 Audit Logs
 grand_parent: Business Email Compromise
 nav_order: 1
