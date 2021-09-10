@@ -90,7 +90,7 @@ What is PowerShell command to find the audit config. I have a feeling its not vi
 - ForeignRealmIndexLogonCookieCopyUsingDAToken
 - PasswordLogonCookieCopyUsingDAToken
 
-## Mailbox rules[Link](url)
+## Mailbox rules
 - New-InboxRule (create new inbox rule)
 - Set-InboxRule (modifying existing rule)
 - Remove-InboxRule
@@ -107,6 +107,4 @@ What is PowerShell command to find the audit config. I have a feeling its not vi
 - Need to look for using PowerShell (how)
 - Need to go into users account and look
 
-[More Info here](https://docs.microsoft.com/en-us/microsoft-365/compliance/search-the-audit-log-in-security-and-compliance?view=o365-worldwide)
-
-
+[More Office365 Audit Log Info here](https://docs.microsoft.com/en-us/microsoft-365/compliance/search-the-audit-log-in-security-and-compliance?view=o365-worldwide)
