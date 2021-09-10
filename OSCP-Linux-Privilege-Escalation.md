@@ -1,10 +1,11 @@
 ---
-title: "OSCP: Linux Privilege Escalation"
+title: Linux Privilege Escalation
 parent: OSCP
 grand_parent: Certifications
 nav_order: 4
 ---
 
+# Linux Privilege Escalation
 privesc_linux
 UPGRADE SHELL python -c ‘import pty; pty.spawn("bin/bash")’
 ctrl-Z

@@ -1,9 +1,11 @@
 ---
-title: "Passing the OSCP Exam: Trying Smarter"
+title: Passing the OSCP Exam
 parent: OSCP
 grand_parent: Certifications
 nav_order: 6
 ---
+
+# Passing the OSCP Exam
 
 > The definition of insanity is doing the same thing over and over again, but expecting different results.
   

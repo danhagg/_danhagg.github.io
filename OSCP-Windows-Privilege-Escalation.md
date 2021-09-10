@@ -1,9 +1,11 @@
 ---
-title: "OSCP: Windows Privilege Escalation"
+title: Windows Privilege Escalation
 parent: OSCP
 grand_parent: Certifications
 nav_order: 3
 ---
+
+# Windows Privilege Escalation
 
 ```
 icacls scsiaccess.exe

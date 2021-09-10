@@ -7,11 +7,13 @@ nav_order: 2
 
 # Linux Buffer Overflow (Crossfire)
 Download a version of the vulnerable app Crossfire
+
 ### Setup safe environment: iptables only allow traffic from loopback interface=targetip
 iptables –A, -p, -d, -j # Append, protocol, destination, jump
 crossfire listens on port 13327
 iptables -A INPUT -p tcp --destination-port 13327 \! -d 127.0.0.1 -j DROP
 iptables -A INPUT -p tcp --destination-port 4444 \! -d 127.0.0.1 -j DROP
+
 ### 1. Run debugger and crash the app
 Get POC code from exploit db
 edb --run /usr/games/crossfire/bin/crossfire. In EDBG: Hit RUN twice
