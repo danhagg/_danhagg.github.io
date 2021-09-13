@@ -1,6 +1,6 @@
 ---
 title: PowerShell Basic
-parent: POWERSHELL
+parent: PowerShell
 nav_order: 1
 ---
 
