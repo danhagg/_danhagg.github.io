@@ -35,6 +35,16 @@ The triage zip file can then be downloaded from browser
 
 #### 2. Event Logs
 
+Event log collection works fine on home desktop.
+
+- json file
+- excel file
+
+- Export these into
+  - Axiom has log event viewer
+  - Splunk
+  - Elastic Search (SOFELK)
+
 #### 3. All running processes, DLLs
 
 #### 4. Memory dumps
